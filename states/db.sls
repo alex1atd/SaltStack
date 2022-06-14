@@ -7,7 +7,7 @@ mysql-server:
 
 change_sql_pass:
   cmd.run:
-    - name: mysql -e 'ALTER USER 'root'@'localhost' IDENTIFIED BY "{{ pillar['adumitriu_config']['sql_password'] }}"; flush privileges;'
+    - name: mysql -e 'ALTER USER 'root'@'localhost' IDENTIFIED BY "{{ pillar['adumitriu_config']['sql_password'] }}"; flush privileges;'; exit 0
     - unless:
       - fun: pkg.version
       - args:
